@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "Uploading to S3..."
+echo "hi good morning"
 
