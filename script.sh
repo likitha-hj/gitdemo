@@ -1,4 +1,4 @@
 #!/bin/bash
 echo "hi good morning to all"
 ls -l
-echo "start,next not"
+echo "start,next not "
