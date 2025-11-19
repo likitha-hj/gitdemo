@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Pulling code from GitHub"
+                sh 'ls -l'
+            }
+        }
+    }
+}
