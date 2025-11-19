@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     if (params.ENV == "prod") {
-                        echo "⚠️ Production Deployment started!"
+                        echo "⚠️ Production Deployment starteddddd!"
                     } else {
                         echo "Deploying to ${params.ENV} environment..."
                     }
