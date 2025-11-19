@@ -2,14 +2,37 @@ pipeline {
     agent any
 
     parameters {
+        choice(name: 'ENV', choices: ['dev', 'qa', 'prod'], description: 'Choose environment')
         string(name: 'USERNAME', defaultValue: 'Likitha', description: 'Enter your name')
     }
 
+    environment {
+        COMPANY = "TechCorp"
+        VERSION = "2.0.1"
+    }
+
     stages {
-        stage('Hello') {
+
+        stage('Show Inputs') {
             steps {
-                echo "Hello, ${params.USERNAME}!"
+                echo "Hello ${params.USERNAME}!"
+                echo "Environment Selected: ${params.ENV}"
+                echo "Company: ${env.COMPANY}"
+                echo "Version: ${env.VERSION}"
+            }
+        }
+
+        stage('Decision Making') {
+            steps {
+                script {
+                    if (params.ENV == "prod") {
+                        echo "⚠️ Production Deployment started!"
+                    } else {
+                        echo "Deploying to ${params.ENV} environment..."
+                    }
+                }
             }
         }
     }
 }
+
