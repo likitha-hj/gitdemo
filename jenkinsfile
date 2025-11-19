@@ -1,11 +1,14 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'USERNAME', defaultValue: 'Likitha', description: 'Enter your name')
+    }
+
     stages {
-        stage('Build') {
+        stage('Hello') {
             steps {
-                echo "Pulling code from GitHub"
-                sh 'ls -l'
+                echo "Hello, ${params.USERNAME}!"
             }
         }
     }
